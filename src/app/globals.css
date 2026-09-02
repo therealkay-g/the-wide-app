@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f9fafb;
+  --foreground: #111827;
+  --primary: #0B6E4F;
+  --primary-light: #2DD4A8;
+  --primary-dark: #095E42;
+  --accent: #D4A843;
+  --accent-light: #E8C76A;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #030712;
+    --foreground: #f9fafb;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    scrollbar-color: #4b5563 transparent;
+  }
+}
+
+/* =============================================
+   Tree canvas nodes (SVG interactions)
+   ============================================= */
+.tree-node {
+  cursor: pointer;
+}
+
+.tree-node .node-hover-bg {
+  fill: transparent;
+  transition: fill 0.15s ease;
+}
+
+.tree-node:hover .node-hover-bg {
+  fill: rgba(11, 110, 79, 0.05);
+}
+
+.tree-node .node-action {
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.tree-node:hover .node-action {
+  opacity: 1;
+}
+
+.node-action:hover circle {
+  filter: brightness(0.92);
+}
+
+.dimmed-node {
+  opacity: 0.25;
+  transition: opacity 0.2s ease;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

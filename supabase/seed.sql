@@ -1,0 +1,3 @@
+-- WIDE Seed Data
+-- Families and persons are created through the app after signup.
+-- No seed data needed - the app starts empty.
